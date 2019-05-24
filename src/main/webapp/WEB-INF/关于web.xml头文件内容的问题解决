@@ -1,0 +1,16 @@
+关于创建maven项目时web.xml文件出现不一样的头部内容的解决方案：
+在进行各项参数的配置时必须严格按照 
+(icon?,display-name?,description?,distributable?,
+context-param*,
+filter*,filter-mapping*,
+listener*,
+servlet*,servlet-mapping*,
+session-config?,mime-mapping*,
+welcome-file-list?,
+error-page*,taglib*,
+resource-env-ref*,resource-ref*,
+security-constraint*,login-config?,
+security-role*,
+env-entry*,ejb-ref*,ejb-local-ref*)
+这个顺序进行设置各个参数，否则就会提示<web-app>标签有错，头文件的内容
+也不必非要改成“<?xml version="1.0" encoding="UTF-8"?>”这种形式的头部内容

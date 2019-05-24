@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yd93.dao.UserDao">
+
+    <!-- 用户登录验证 -->
+    <select id="getByUserName" parameterType="String" resultType="com.yd93.model.User">
+        SELECT *
+        FROM t_user
+        WHERE username=#{NAME}
+    </select>
+    <select id="getRoles" parameterType="string" resultType="string">
+        SELECT r.rolename
+        FROM t_user u,t_role r
+        WHERE u.roleid=r.id AND u.username=#{username}
+    </select>
+    <select id="getPermissions" parameterType="string" resultType="string">
+        SELECT p.permissionname
+        FROM t_user u,t_role r,t_permission p
+        WHERE u.roleid=r.id AND p.roleid=r.id AND u.username=#{username}
+    </select>
+</mapper>

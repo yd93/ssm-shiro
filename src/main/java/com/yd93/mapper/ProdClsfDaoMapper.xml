@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yd93.dao.ProdClsfDao">
+
+    <!-- 用户登录验证 -->
+    <select id="getProdClsf" resultType="com.yd93.model.ProdClsf">
+        SELECT *
+        FROM PROD_CLSF
+    </select>
+</mapper>
