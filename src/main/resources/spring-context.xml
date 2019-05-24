@@ -70,13 +70,15 @@
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.jsp"/>
+        <property name="loginUrl" value="/index.jsp"/>
         <property name="successUrl" value="/success.jsp"/>
         <property name="unauthorizedUrl" value="/error.jsp"/>
         <property name="filterChainDefinitions">
             <!-- 这里是受保护页面的设置，左边是请求，右边是权限或角色,按照第一次匹配优先的原则-->
             <value>
                 /login = anon
+                /prod = authc
+                /rlb = authc
                 # /url = 角色/权限
                 # authc定义的是必须有权限才能访问的内容
                 # /url = authc
